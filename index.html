@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Tracker</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dot" id="dot"></div>
+
+    <script>
+        const dot = document.getElementById('dot');
+
+        // Update the position of the dot based on mouse movement
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+            console.log(y + "\n"  + x)
+            // Move the dot to follow the mouse
+            dot.style.left = `${x - dot.offsetWidth / 2}px`;
+            dot.style.top = `${y - dot.offsetHeight / 2}px`;
+        });
+    </script>
+</body>
+</html>
